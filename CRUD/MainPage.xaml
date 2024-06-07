@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUD.MainPage" BackgroundColor="AntiqueWhite">
+
+    <StackLayout>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                <Image x:Name="imgBanner" Source="banner.png" />
+                <Image Margin="0,0,0,10" HeightRequest="100" Source="Crud.png" />
+                <Label Margin="0,0,0,10" Text="CRUD" FontAttributes="Bold" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center" />
+                <Entry x:Name="txtPersonId" Placeholder="PersonId Actualizar y Eliminar" />
+                <Entry x:Name="txtName" Placeholder="Ingrese su nombre" />
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <!-- Add Button with Image -->
+                    <Frame HasShadow="True" Padding="0" Margin="5">
+                        <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="CenterAndExpand">
+                            <Image Source="Agregar.png" WidthRequest="40" HeightRequest="40"/>
+                            <Label Text="Agregar" VerticalOptions="Center" Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnAdd_Clicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Read Button with Image -->
+                    <Frame HasShadow="True" Padding="0" Margin="5">
+                        <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="CenterAndExpand">
+                            <Image Source="Leer.png" WidthRequest="40" HeightRequest="40"/>
+                            <Label Text="Leer" VerticalOptions="Center" Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnRead_Clicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <!-- Update Button with Image -->
+                    <Frame HasShadow="True" Padding="0" Margin="5">
+                        <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="CenterAndExpand">
+                            <Image Source="Actualizar.png" WidthRequest="40" HeightRequest="40"/>
+                            <Label Text="Actualizar" VerticalOptions="Center" Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnUpdate_Clicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Delete Button with Image -->
+                    <Frame HasShadow="True" Padding="0" Margin="5">
+                        <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="CenterAndExpand">
+                            <Image Source="Eliminar.png" WidthRequest="40" HeightRequest="40"/>
+                            <Label Text="Eliminar" VerticalOptions="Center" Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnDelete_Clicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+                <ListView x:Name="lstPersons">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" Detail="{Binding PersonID}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
